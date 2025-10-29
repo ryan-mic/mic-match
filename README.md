@@ -166,14 +166,10 @@ PORT=5000
 DEBUG=True
 ```
 
-**Frontend (vercel.json):**
-```json
-{
-  "env": {
-    "NEXT_PUBLIC_API_URL": "http://localhost:5000"
-  }
-}
-```
+**Frontend (Environment Variable):**
+Set `NEXT_PUBLIC_API_URL` in your deployment platform:
+- **Local Development:** `http://localhost:5000`
+- **Production:** Your backend URL (e.g., `https://api.yourapp.com`)
 
 ## 📊 API Documentation
 
@@ -227,16 +223,14 @@ Returns the list of songs in the test database.
 
 ### Frontend (Vercel)
 
-```bash
-# Install Vercel CLI
-npm i -g vercel
+**GitHub Integration:**
+1. Go to [vercel.com](https://vercel.com) and sign in
+2. Import project from GitHub: `https://github.com/ryan-mic/mic-match`
+3. Configure environment variables:
+   - `NEXT_PUBLIC_API_URL`: Your backend URL
+4. Deploy automatically on push to `main`
 
-# Deploy
-vercel
-```
-
-Configure environment variables in Vercel dashboard:
-- `NEXT_PUBLIC_API_URL`: Your backend URL
+Vercel will auto-detect Next.js and deploy the frontend.
 
 ### Backend (Python Server)
 

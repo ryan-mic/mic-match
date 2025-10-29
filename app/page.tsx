@@ -63,17 +63,7 @@ export default function HomePage() {
     setProcessingStage('downloading');
 
     try {
-      // Simulate processing stages
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setProcessingStage('fingerprinting');
-
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setProcessingStage('transcribing');
-
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setProcessingStage('matching');
-
-      // Make API call
+      // Make API call with SSE streaming
       const response = await fetch('/api/match', {
         method: 'POST',
         headers: {
@@ -86,10 +76,56 @@ export default function HomePage() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data: MatchResult = await response.json();
+      if (!response.body) {
+        throw new Error('No response body');
+      }
 
-      setResult(data);
-      setProcessingStage('complete');
+      // Read SSE stream
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() || '';
+
+        for (const line of lines) {
+          if (!line.trim() || !line.startsWith('data: ')) continue;
+
+          try {
+            const jsonStr = line.substring(6); // Remove "data: " prefix
+            const data = JSON.parse(jsonStr);
+
+            // Update processing stage based on status
+            if (data.status === 'downloading') {
+              setProcessingStage('downloading');
+            } else if (data.status === 'fingerprinting') {
+              setProcessingStage('fingerprinting');
+            } else if (data.status === 'transcribing') {
+              setProcessingStage('transcribing');
+            } else if (data.status === 'matching') {
+              setProcessingStage('matching');
+            } else if (data.status === 'complete') {
+              setResult({
+                match: data.match,
+                confidence: data.confidence,
+                audioSim: data.audioSim,
+                lyricsSim: data.lyricsSim,
+              });
+              setProcessingStage('complete');
+            } else if (data.status === 'error') {
+              throw new Error(data.error || 'Processing failed');
+            }
+          } catch (parseErr) {
+            console.error('Error parsing SSE data:', parseErr);
+          }
+        }
+      }
     } catch (err) {
       console.error('Error analyzing cover:', err);
       setError(err instanceof Error ? err.message : 'Failed to analyze video. Please try again.');

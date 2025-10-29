@@ -19,8 +19,8 @@ numpy==1.26.2
 # HTTP Requests
 requests==2.31.0
 
-# YouTube Download
-yt-dlp==2023.12.30
+# YouTube Download (latest for best YouTube support)
+yt-dlp>=2024.10.22
 
 # Audio Backend (required by librosa)
 soundfile==0.12.1

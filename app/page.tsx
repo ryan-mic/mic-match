@@ -119,7 +119,7 @@ export default function HomePage() {
               });
               setProcessingStage('complete');
             } else if (data.status === 'error') {
-              throw new Error(data.error || 'Processing failed');
+              throw new Error(data.message || data.error || 'Processing failed');
             }
           } catch (parseErr) {
             console.error('Error parsing SSE data:', parseErr);

@@ -54,8 +54,13 @@ CORS(app)  # Enable CORS for all routes
 
 # Configuration
 ELEVENLABS_API_KEY = os.getenv('ELEVENLABS_API_KEY')
-STUDIO_LIBRARY_PATH = os.getenv('STUDIO_LIBRARY_PATH', 'studio_library.json')
-YOUTUBE_COOKIES_PATH = os.getenv('YOUTUBE_COOKIES_PATH', 'youtube_cookies.txt')
+
+# Get backend directory (where this app.py file is located)
+BACKEND_DIR = Path(__file__).parent
+
+# Paths relative to backend directory
+STUDIO_LIBRARY_PATH = os.getenv('STUDIO_LIBRARY_PATH') or str(BACKEND_DIR / 'studio_library.json')
+YOUTUBE_COOKIES_PATH = os.getenv('YOUTUBE_COOKIES_PATH') or str(BACKEND_DIR / 'youtube_cookies.txt')
 
 
 # ============================================================================

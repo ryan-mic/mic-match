@@ -72,6 +72,10 @@ def download_youtube_audio(video_id: str, output_dir: Optional[str] = None) -> T
             '--no-warnings',
             '--print', 'after_move:filepath',  # Print final filepath
             '--print', 'title',  # Print video title
+            # Bypass YouTube bot detection
+            '--user-agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            '--extractor-args', 'youtube:player_client=android,web',
+            '--no-check-certificate',
             f'https://www.youtube.com/watch?v={video_id}'
         ]
 

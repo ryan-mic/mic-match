@@ -11,11 +11,6 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
-  // Experimental features
-  experimental: {
-    turbopack: process.env.TURBOPACK === 'true',
-  },
-
   // TypeScript strict mode
   typescript: {
     tsconfigPath: './tsconfig.json',
@@ -24,12 +19,6 @@ const nextConfig: NextConfig = {
   // Environment variables
   env: {
     NEXT_PUBLIC_APP_NAME: 'MIC Match',
-  },
-
-  // Webpack configuration for additional optimizations
-  webpack: (config) => {
-    config.optimization.usedExports = true;
-    return config;
   },
 
   // Headers for security

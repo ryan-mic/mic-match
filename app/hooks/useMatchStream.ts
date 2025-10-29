@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import type { StreamUpdate, CompleteUpdate } from '@/app/api/types';
+import type { StreamUpdate } from '@/app/api/types';
 
 interface UseMatchStreamResult {
   startMatch: (youtubeUrl: string) => void;

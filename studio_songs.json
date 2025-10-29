@@ -1,0 +1,167 @@
+[
+  {
+    "artist": "Oasis",
+    "title": "Wonderwall",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Nirvana",
+    "title": "Smells Like Teen Spirit",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Massive Attack",
+    "title": "Teardrop",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Amy Winehouse",
+    "title": "Back To Black",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Radiohead",
+    "title": "Karma Police",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Radiohead",
+    "title": "Paranoid Android",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Coldplay",
+    "title": "The Scientist",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Coldplay",
+    "title": "Clocks",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Fleetwood Mac",
+    "title": "Dreams",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Daft Punk",
+    "title": "Get Lucky",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Fleetwood Mac",
+    "title": "The Chain",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Nirvana",
+    "title": "Come As You Are",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Pink Floyd",
+    "title": "Time",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Audioslave",
+    "title": "Like a Stone",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Oasis",
+    "title": "Champagne Supernova",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Radiohead",
+    "title": "No Surprises",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "A Perfect Circle",
+    "title": "Judith",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Nirvana",
+    "title": "Lithium",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Pink Floyd",
+    "title": "Money",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Gorillaz",
+    "title": "On Melancholy Hill",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Audioslave",
+    "title": "Cochise",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Audioslave",
+    "title": "I Am the Highway",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "A Perfect Circle",
+    "title": "3 Libras",
+    "genre": "Unknown"
+  },
+  {
+    "artist": "Billie Eilish",
+    "title": "bad guy",
+    "genre": "Modern Pop"
+  },
+  {
+    "artist": "Alt-J",
+    "title": "Breezeblocks",
+    "genre": "Indie Alternative"
+  },
+  {
+    "artist": "Frank Ocean",
+    "title": "Swim Good",
+    "genre": "R&B Neo-Soul"
+  },
+  {
+    "artist": "The Weeknd",
+    "title": "Wicked Games",
+    "genre": "Alternative R&B"
+  },
+  {
+    "artist": "The Used",
+    "title": "The Taste of Ink",
+    "genre": "Emo Post-Hardcore"
+  },
+  {
+    "artist": "Death Cab For Cutie",
+    "title": "Soul Meets Body",
+    "genre": "Indie Rock"
+  },
+  {
+    "artist": "The Shins",
+    "title": "New Slang",
+    "genre": "Indie Folk-Rock"
+  },
+  {
+    "artist": "Bj\u00f6rk",
+    "title": "Human Behaviour",
+    "genre": "Experimental Electronic"
+  },
+  {
+    "artist": "Alanis Morissette",
+    "title": "You Oughta Know",
+    "genre": "90s Alt Rock"
+  },
+  {
+    "artist": "Yeah Yeah Yeahs",
+    "title": "Maps",
+    "genre": "Indie Post-Punk"
+  }
+]

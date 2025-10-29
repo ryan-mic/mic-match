@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@layer base {
+  /* Custom font declarations if needed */
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-neutral-50 text-neutral-900;
+  }
+
+  /* Headings */
+  h1 {
+    @apply text-4xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl font-bold tracking-tight;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold tracking-tight;
+  }
+
+  h4 {
+    @apply text-xl font-semibold;
+  }
+
+  h5 {
+    @apply text-lg font-semibold;
+  }
+
+  h6 {
+    @apply text-base font-semibold;
+  }
+
+  /* Links */
+  a {
+    @apply text-blue-600 hover:text-blue-700 transition-colors duration-200;
+  }
+
+  /* Lists */
+  ul {
+    @apply list-disc list-inside;
+  }
+
+  ol {
+    @apply list-decimal list-inside;
+  }
+
+  /* Code blocks */
+  code {
+    @apply bg-neutral-100 px-2 py-1 rounded font-mono text-sm;
+  }
+
+  pre {
+    @apply bg-neutral-900 text-neutral-50 p-4 rounded-lg overflow-auto;
+  }
+
+  pre code {
+    @apply bg-transparent p-0;
+  }
+
+  /* Forms */
+  input,
+  textarea,
+  select {
+    @apply rounded border border-neutral-300 px-3 py-2 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-colors;
+  }
+
+  button {
+    @apply font-medium transition-colors duration-200;
+  }
+
+  /* Tables */
+  table {
+    @apply w-full border-collapse;
+  }
+
+  th {
+    @apply bg-neutral-100 border border-neutral-200 px-4 py-2 text-left font-semibold;
+  }
+
+  td {
+    @apply border border-neutral-200 px-4 py-2;
+  }
+}
+
+@layer components {
+  /* Utility classes for common patterns */
+  .container-safe {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-neutral-200 text-neutral-900 rounded-lg font-medium hover:bg-neutral-300 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 text-neutral-700 font-medium hover:bg-neutral-100 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .input-base {
+    @apply w-full px-3 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100;
+  }
+
+  .card {
+    @apply bg-white rounded-lg border border-neutral-200 p-6 shadow-sm hover:shadow-md transition-shadow;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800;
+  }
+}
+
+@layer utilities {
+  /* Safe area utilities for mobile devices */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Text truncation utilities */
+  .line-clamp-1 {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Smooth scroll behavior */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus ring utilities */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive breakpoints reference:
+   sm: 640px
+   md: 768px
+   lg: 1024px
+   xl: 1280px
+   2xl: 1536px
+*/

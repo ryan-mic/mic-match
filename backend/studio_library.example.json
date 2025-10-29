@@ -1,0 +1,13 @@
+[
+  {
+    "artist": "Example Artist",
+    "title": "Example Song",
+    "lyrics": "This is an example song with some sample lyrics that would normally come from transcription",
+    "audio_features": {
+      "chroma_stft_mean": [0.5, 0.3, 0.2, 0.1, 0.4, 0.6, 0.3, 0.2, 0.5, 0.4, 0.3, 0.2],
+      "chroma_cqt_mean": [0.4, 0.3, 0.3, 0.2, 0.5, 0.5, 0.4, 0.3, 0.4, 0.3, 0.4, 0.3],
+      "tonnetz_mean": [0.3, 0.2, 0.4, 0.3, 0.2, 0.5],
+      "spectral_contrast_mean": [0.6, 0.5, 0.4, 0.3, 0.5, 0.4, 0.6]
+    }
+  }
+]

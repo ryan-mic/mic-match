@@ -64,9 +64,9 @@ def download_youtube_audio(video_id: str, output_dir: Optional[str] = None, cook
         # Format: best audio quality, convert to mp3
         cmd = [
             'yt-dlp',
+            '-f', 'bestaudio',  # Select best available audio stream
             '-x',  # Extract audio
             '--audio-format', 'mp3',
-            '--audio-quality', '0',  # Best quality
             '-o', output_template,
             '--no-playlist',
             '--quiet',

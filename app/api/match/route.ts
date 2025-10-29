@@ -109,8 +109,9 @@ export async function POST(request: NextRequest) {
     const stream = new ReadableStream({
       async start(controller) {
         try {
-          // Call Python backend
-          const response = await fetch('http://localhost:5000/process', {
+          // Call Python backend (use environment variable or fallback to localhost)
+          const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+          const response = await fetch(`${backendUrl}/process`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

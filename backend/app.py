@@ -384,12 +384,28 @@ def process_video():
         logger.info(f"Processing video: {video_id}")
 
         # Return SSE stream
+        def generate():
+            try:
+                for message in process_video_stream(video_id):
+                    logger.info(f"Yielding SSE message: {message[:100]}...")  # Log first 100 chars
+                    yield message
+            except Exception as e:
+                logger.error(f"Error in SSE generator: {str(e)}")
+                logger.error(traceback.format_exc())
+                error_msg = create_sse_message({
+                    'status': 'error',
+                    'message': f'Streaming error: {str(e)}',
+                    'progress': 0
+                })
+                yield error_msg
+
         return Response(
-            process_video_stream(video_id),
+            generate(),
             mimetype='text/event-stream',
             headers={
                 'Cache-Control': 'no-cache',
-                'X-Accel-Buffering': 'no'
+                'X-Accel-Buffering': 'no',
+                'Connection': 'keep-alive'
             }
         )
 

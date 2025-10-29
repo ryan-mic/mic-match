@@ -55,6 +55,7 @@ CORS(app)  # Enable CORS for all routes
 # Configuration
 ELEVENLABS_API_KEY = os.getenv('ELEVENLABS_API_KEY')
 STUDIO_LIBRARY_PATH = os.getenv('STUDIO_LIBRARY_PATH', 'studio_library.json')
+YOUTUBE_COOKIES_PATH = os.getenv('YOUTUBE_COOKIES_PATH', 'youtube_cookies.txt')
 
 
 # ============================================================================
@@ -192,7 +193,13 @@ def process_video_stream(video_id: str) -> Generator[str, None, None]:
         })
 
         try:
-            audio_path, video_title = download_youtube_audio(video_id)
+            # Check if cookies file exists
+            cookies_path = None
+            if Path(YOUTUBE_COOKIES_PATH).exists():
+                cookies_path = YOUTUBE_COOKIES_PATH
+                logger.info(f"Found YouTube cookies at: {cookies_path}")
+
+            audio_path, video_title = download_youtube_audio(video_id, cookies_path=cookies_path)
             yield create_sse_message({
                 'status': 'downloading',
                 'message': f'Downloaded: {video_title}',

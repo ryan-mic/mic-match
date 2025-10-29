@@ -1,0 +1,35 @@
+# YouTube Cookies for yt-dlp Bot Detection Bypass
+# ================================================
+#
+# This file should contain your YouTube cookies in Netscape cookie format.
+#
+# HOW TO GENERATE:
+#
+# Option 1: Browser Extension (RECOMMENDED)
+# -----------------------------------------
+# 1. Install "Get cookies.txt LOCALLY" extension:
+#    Chrome: https://chrome.google.com/webstore/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc
+#    Firefox: https://addons.mozilla.org/en-US/firefox/addon/get-cookies-txt-locally/
+#
+# 2. Go to https://www.youtube.com and make sure you're logged in
+# 3. Click the extension icon
+# 4. Click "Export" → "Current Site" for youtube.com
+# 5. Save as youtube_cookies.txt in the backend/ directory
+#
+# Option 2: Let yt-dlp Extract from Browser
+# ------------------------------------------
+# Set environment variable:
+#   YOUTUBE_COOKIES_PATH=chrome  # or firefox, brave, etc.
+#
+# Option 3: Manual Cookie Export (Advanced)
+# ------------------------------------------
+# Use browser DevTools to manually export cookies in Netscape format
+#
+# SECURITY WARNING:
+# -----------------
+# - Cookies contain authentication tokens - KEEP THEM SECRET!
+# - DO NOT commit this file to git with real cookies
+# - Add youtube_cookies.txt to .gitignore
+# - Cookies expire - you may need to refresh them periodically
+#
+# After adding cookies, rename this file to: youtube_cookies.txt

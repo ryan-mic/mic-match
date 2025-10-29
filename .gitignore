@@ -69,3 +69,4 @@ node_modules/.cache
 # Backup files
 *.bak
 *~
+backend/youtube_cookies.txt

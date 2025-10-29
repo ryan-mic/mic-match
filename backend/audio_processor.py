@@ -30,13 +30,14 @@ logger = logging.getLogger(__name__)
 # YOUTUBE DOWNLOAD
 # ============================================================================
 
-def download_youtube_audio(video_id: str, output_dir: Optional[str] = None) -> Tuple[str, str]:
+def download_youtube_audio(video_id: str, output_dir: Optional[str] = None, cookies_path: Optional[str] = None) -> Tuple[str, str]:
     """
     Download audio from YouTube video using yt-dlp.
 
     Args:
         video_id: YouTube video ID (e.g., 'dQw4w9WgXcQ')
         output_dir: Directory to save audio file. If None, uses temp directory.
+        cookies_path: Path to Netscape cookies file for authentication (optional)
 
     Returns:
         Tuple of (audio_file_path, video_title)
@@ -76,8 +77,14 @@ def download_youtube_audio(video_id: str, output_dir: Optional[str] = None) -> T
             '--user-agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
             '--extractor-args', 'youtube:player_client=android,web',
             '--no-check-certificate',
-            f'https://www.youtube.com/watch?v={video_id}'
         ]
+
+        # Add cookies if provided
+        if cookies_path and os.path.exists(cookies_path):
+            cmd.extend(['--cookies', cookies_path])
+            logger.info(f"Using cookies from: {cookies_path}")
+
+        cmd.append(f'https://www.youtube.com/watch?v={video_id}')
 
         result = subprocess.run(
             cmd,
